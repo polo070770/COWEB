@@ -1,0 +1,42 @@
+#bar_nav ul {
+    list-style: none;
+    background-color: #444;
+}
+
+#bar_nav li {
+    font-size: 1.2em;
+    line-height: 40px;
+    height: 40px;
+    border-bottom: 1px solid #888;
+}
+ 
+#bar_nav a {
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    transition: .3s background-color;
+}
+
+#bar_nav a:hover {
+  background-color: #005f5f;
+}
+ 
+#bar_nav a.active {
+  background-color: #fff;
+  color: #444;
+  cursor: default;
+}
+ 
+@media screen and (min-width: 600px) {
+#bar_nav li {
+    width: 240px;
+    border-bottom: none;
+    height: 50px;
+    line-height: 50px;
+    font-size: 1.4em;
+  }
+ 
+#bar_nav li {
+    display: inline-block;
+    margin-right: -4px;
+  }

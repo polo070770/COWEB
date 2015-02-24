@@ -1,0 +1,19 @@
+.home_view {
+    background-color: #CCC;
+    font-family: 'Oswald', sans-serif;
+}
+
+.home_view .top {
+	text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+.home_view .center {
+	/*text-align: center;*/
+	margin: 100 50;
+}
+
+.home_view .bottom {
+
+}
