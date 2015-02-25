@@ -1,16 +1,13 @@
 .home_view {
+	font-family: 'Oswald', sans-serif;
     background-color: #CCC;
-    font-family: 'Oswald', sans-serif;
 }
 
 .home_view .top {
-	text-align: center;
-    padding: 0;
-    margin: 0;
 }
 
 .home_view .center {
-	/*text-align: center;*/
+	text-align: center;
 	margin: 100 50;
 }
 

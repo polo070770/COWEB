@@ -1,4 +1,7 @@
 #bar_nav ul {
+    text-align: center;
+    padding: 0;
+    margin: 0;
     list-style: none;
     background-color: #444;
 }
@@ -18,13 +21,13 @@
 }
 
 #bar_nav a:hover {
-  background-color: #005f5f;
+    background-color: #005f5f;
 }
  
 #bar_nav a.active {
-  background-color: #fff;
-  color: #444;
-  cursor: default;
+    background-color: #fff;
+    color: #444;
+    cursor: default;
 }
  
 @media screen and (min-width: 600px) {
@@ -34,9 +37,9 @@
     height: 50px;
     line-height: 50px;
     font-size: 1.4em;
-  }
+}
  
 #bar_nav li {
     display: inline-block;
     margin-right: -4px;
-  }
+}
