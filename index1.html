@@ -21,7 +21,7 @@
 	</head>
 
 	<body>
-		<div class="grid-container">
+		<div class="container">
 			<nav>
 				<ul>
 					<li><a href="#">Home</a></li>
@@ -39,13 +39,11 @@
 				Disfruta como si estés en tu propia casa, vayas donde vayas!
 			</div>
 
-			<div class="row">
-				<div class="col-12">
-					<form method="get" action="http://www.google.com/search">
-                    	<input type="text" name="q" placeholder="Busca en google..." />
-                    	<input type="submit" value="Buscar" />
-                	</form>
-				</div>
+			<div id="search">
+				<form method="get" action="http://www.google.com/search">
+                	<input type="text" name="q" placeholder="Busca en google..." />
+                	<input type="submit" value="Buscar" />
+            	</form>
 			</div>
 
 			<div class="row">
@@ -59,11 +57,9 @@
 				</div>
 			</div>
 
-			<div class="row">
-				<div class="col-12">
-					© Universidad de Barcelona.
-				</div>
-			</div>
+			<footer class="page-row">
+				<p>© Universidad de Barcelona.</p>
+			</footer>
 		</div>
 	</body>
 </html>
