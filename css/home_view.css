@@ -3,14 +3,14 @@
     background-color: #CCC;
 }
 
-.home_view .top {
+#header {
 }
 
-.home_view .center {
+#inner {
 	text-align: center;
 	margin: 100 50;
 }
 
-.home_view .bottom {
+#footer {
 
 }

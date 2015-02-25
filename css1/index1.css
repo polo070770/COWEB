@@ -1,0 +1,78 @@
+/* ---RESET CSS */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* RESET CSS--- */
+
+body{line-height:1; padding:15px; background:#eee; font-family: 'Oswald', sans-serif; font-size:16px;}
+
+.grid-container{width:100%;}
+.row{display:table; clear:both; width:100%; margin-bottom:15px;}
+.row .box{margin-left:15px;}
+
+/* El primer div dentro de la clase .row que le remueva el margin a la clase .box*/
+.row div:first-child > .box{margin-left:0} 
+
+/* Decorador para ver las grillas */
+.resaltador .row{background-color:#FFC2C2; text-align:center;}
+.resaltador .row .box{background:#FFDCDC;}
+
+[class*='col-'] {float:left;min-height:1px;}
+
+.col-12 {width: 100%;}
+.col-11 {width: 91.66666667%;}
+.col-10 {width: 83.33333333%;}
+.col-9 {width: 75%;}
+.col-8 {width: 66.66666667%;}
+.col-7 {width: 58.33333333%;}
+.col-6 {width: 50%;}
+.col-5 {width: 41.66666667%;}
+.col-4 {width: 33.33333333%;}
+.col-3 {width: 25%;}
+.col-2 {width: 16.66666667%;}
+.col-1 {width: 8.33333333%;}
+
+@media (max-width: 800px) {
+	.row{margin:0;}
+	.row .box{margin-left:0; margin-bottom:15px;}
+	[class*='col-'] {display:block; width:100%;}
+}
+
+#title{font-size:50px; border-top:1px solid #ddd; margin:15px 0; padding-bottom:5px; text-align:center}
+#subtitle{font-size:20px; border-bottom:1px solid #ddd; margin:15px 0; padding-bottom:5px; text-align:center}
+
+/* Helpers */
+.img-responsive{width:100%;height:auto;}
+
+h1{font-size:50px; border-bottom:1px solid #ddd; margin:0 0 15px; padding-bottom:15px; padding:15px; border-radius:4px; text-align:center; color:#666;}
+h2{font-size:28px; border-bottom:1px solid #ddd; margin:15px 0; padding-bottom:5px;}
+h3{font-size:24px; border-bottom:1px solid #ddd; margin:15px 0; padding-bottom:5px;}
+h4{font-size:20px; border-bottom:1px solid #ddd; margin:15px 0; padding-bottom:5px;}
+
+nav ul{display:table;margin-bottom:15px;width:100%;}
+nav ul li{display:table-cell;}
+nav ul li a{display:block;padding:15px;background:#ddd;color:#222;text-decoration:none;text-align:center;border-bottom:2px solid #ccc;}
+nav ul li a:hover{background:#999;border-bottom:2px solid #222;box-shadow:10px 10px 15px #ddd;color:#eee;transition:background 0.4s;}
+
+@media (max-width: 800px) {
+	nav{position:fixed;bottom:0;left:0;border-top:4px solid #222;width:100%;}
+	nav ul{margin-bottom:0;}
+	nav ul li a{background:#ccc;}
+}
