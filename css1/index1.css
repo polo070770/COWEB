@@ -24,24 +24,33 @@ time, mark, audio, video {
 body{
 	font-family: 'Oswald', sans-serif;
 	background: #eee;
-	height: 97%
+	height: 100%
 }
 
 .container{
-	height: 100%;
+	height: 97%;
+}
+
+.footer {
+	height: 3%;
+	text-align: center;
+}
+
+.img-responsive{
+	width: 100%;
+	height: auto;
 }
 
 .row{
 	display: table;
 	clear: both;
 	width: 100%;
-	/*margin-bottom: 15px;*/
 }
 
 .row .box{margin-left: 15px;}
 .row div:first-child > .box{margin-left: 0}
 
-[class*='col-'] {float:left;min-height:1px;}
+[class*='col-'] {float:left; min-height:1px;}
 
 .col-12 {width: 100%;}
 .col-11 {width: 91.66666667%;}
@@ -56,13 +65,11 @@ body{
 .col-2 {width: 16.66666667%;}
 .col-1 {width: 8.33333333%;}
 
-#title{font-size: 60px; text-align: center; /*margin-top: 10%;*/}
+#title{font-size: 60px; text-align: center; padding-top: 15%;}
 
-#subtitle{font-size: 30px; text-align: center; /*margin-top: 1%;*/}
+#subtitle{font-size: 30px; text-align: center; padding-top: 2%;}
 
-#search{text-align: center; /*margin-top: 3%*/;}
-
-#footer{height: 1px; text-align: center}
+#search{text-align: center; padding-top: 2%; padding-bottom: 2%;}
 	
 #search input[type="text"] {
 	border: 1px solid #d1d1d1;
@@ -76,20 +83,35 @@ body{
 	padding: 6px 5px 6px 5px;	
 }
 
-.img-responsive{width: 100%; height: auto;}
-
-nav ul{display: table; /*margin-bottom: 15px*/; width: 100%;}
-nav ul li{display: table-cell;}
-nav ul li a{display: block; padding:15px;background:#ddd;color:#222;text-decoration:none;text-align:center;border-bottom:2px solid #ccc;}
-nav ul li a:hover{background:#999;border-bottom:2px solid #222;box-shadow:10px 10px 15px #ddd;color:#eee;transition:background 0.4s;}
-
-@media (max-width: 800px) {
-	nav{position:fixed; top:0; left:0; border-top:4px solid #222; width:100%;}
-	nav ul{margin-bottom:0;}
-	nav ul li a{background:#ccc;}
+nav{
+	display:block;
+	position: fixed;
+	border-top:4px solid #222;
+	width:100%;
 }
 
-@media (max-width: 800px) {
-	.row{margin:0;}
-	[class*='col-'] {display:block; width:100%;}
+nav ul{
+	display: table;
+	width: 100%;
+}
+nav ul li{
+	display: table-cell;
+}
+
+nav ul li a{
+	display: block;
+	padding: 15px;
+	background: #ddd;
+	color: #222;
+	text-decoration: none;
+	text-align: center;
+	border-bottom: 2px solid #ccc;
+}
+
+nav ul li a:hover{
+	background: #999;
+	border-bottom: 2px solid #222;
+	box-shadow: 10px 10px 15px #ddd;
+	color: #eee;
+	transition:background 0.4s;
 }
