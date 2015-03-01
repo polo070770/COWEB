@@ -22,28 +22,26 @@ time, mark, audio, video {
 /* RESET CSS--- */
 
 body{
-	margin: 2% 2% 2% 2%;
-	background: #eee;
 	font-family: 'Oswald', sans-serif;
-	font-size: 16px;
+	background: #eee;
+	height: 97%
 }
 
 .container{
-	width:100%;
+	height: 100%;
 }
 
 .row{
 	display: table;
-	clear: both; 
-	width:100%; 
-	margin-bottom:15px;
+	clear: both;
+	width: 100%;
+	/*margin-bottom: 15px;*/
 }
 
-.page-row{
-	display: table-row;
-	height: 1px;
+.row .box{margin-left: 15px;}
+.row div:first-child > .box{margin-left: 0}
 
-}
+[class*='col-'] {float:left;min-height:1px;}
 
 .col-12 {width: 100%;}
 .col-11 {width: 91.66666667%;}
@@ -58,20 +56,35 @@ body{
 .col-2 {width: 16.66666667%;}
 .col-1 {width: 8.33333333%;}
 
-#title{font-size:50px; margin: 15% 0% 1% 0%; text-align:center}
-#subtitle{font-size:20px; margin: 1% 0% 15% 0%; text-align:center}
-#search{font-size:20px; margin: 1% 0% 15% 0%; text-align:center}
-#footer{font-size:20px; margin: 8% 0 0 0; text-align:center}
+#title{font-size: 60px; text-align: center; /*margin-top: 10%;*/}
 
-.img-responsive{width:100%;height:auto;}
+#subtitle{font-size: 30px; text-align: center; /*margin-top: 1%;*/}
 
-nav ul{display:table;margin-bottom:15px;width:100%;}
-nav ul li{display:table-cell;}
-nav ul li a{display:block;padding:15px;background:#ddd;color:#222;text-decoration:none;text-align:center;border-bottom:2px solid #ccc;}
+#search{text-align: center; /*margin-top: 3%*/;}
+
+#footer{height: 1px; text-align: center}
+	
+#search input[type="text"] {
+	border: 1px solid #d1d1d1;
+	border-radius: 20px;
+	padding: 6px 15px 6px 25px;	
+}
+
+#search input[type="submit"] {
+	border: 1px solid #d1d1d1;
+	border-radius: 20px;
+	padding: 6px 5px 6px 5px;	
+}
+
+.img-responsive{width: 100%; height: auto;}
+
+nav ul{display: table; /*margin-bottom: 15px*/; width: 100%;}
+nav ul li{display: table-cell;}
+nav ul li a{display: block; padding:15px;background:#ddd;color:#222;text-decoration:none;text-align:center;border-bottom:2px solid #ccc;}
 nav ul li a:hover{background:#999;border-bottom:2px solid #222;box-shadow:10px 10px 15px #ddd;color:#eee;transition:background 0.4s;}
 
 @media (max-width: 800px) {
-	nav{position:fixed; bottom:0; left:0; border-top:4px solid #222; width:100%;}
+	nav{position:fixed; top:0; left:0; border-top:4px solid #222; width:100%;}
 	nav ul{margin-bottom:0;}
 	nav ul li a{background:#ccc;}
 }
