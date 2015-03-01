@@ -47,6 +47,32 @@ body{
 	width: 100%;
 }
 
+.register{
+	padding-top: 10%;
+	text-align: center;
+}
+
+.register-input {
+	padding-top: 2%;
+	text-align: center;
+	background: none;
+	border: 0;
+	border-bottom: 1px solid #d8d8d8;
+}
+
+.login {
+	padding-top: 10%;
+	text-align: center;
+}
+
+.login-input {
+	text-align: center;
+	background: none;
+	border: 0;
+	border-bottom: 1px solid #d8d8d8;
+}
+
+
 .row .box{margin-left: 15px;}
 .row div:first-child > .box{margin-left: 0}
 
