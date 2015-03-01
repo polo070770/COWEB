@@ -110,15 +110,13 @@ body{
 }
 
 nav{
-	display:block;
 	position: fixed;
-	border-top:4px solid #222;
 	width:100%;
 }
 
 nav ul{
 	display: table;
-	width: 100%;
+	width:100%;
 }
 nav ul li{
 	display: table-cell;
