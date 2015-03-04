@@ -17,7 +17,7 @@
 
         <meta charset="utf-8" />
 
-        <link rel="stylesheet" type="text/css" href="css1/index1.css">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
 	</head>
 
 	<body>
@@ -50,9 +50,9 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="login">
-						<form>
-							<input class="login-input" type="email" placeholder="Email">
-							<input class="login-input" type="password" placeholder="Password">
+						<form id='login' action='check_login.php' method='post'>
+							<input class="login-input" id="myemail" type="email" placeholder="Email">
+							<input class="login-input" id="mypassword" type="password" placeholder="Password">
 							<input type="submit" value="Log in">
 						</form>
 					</div>
