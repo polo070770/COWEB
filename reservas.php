@@ -28,6 +28,7 @@
 					<li><a href="register.html">Register</a></li>
 					<li><a href="login.html">Log in</a></li>
 					<li><a href="help.html">Help</a></li>
+					<li><a href="reservas.php">Reservas></a></li>
 				</ul>
 			</nav>
 
@@ -49,19 +50,35 @@
 
 			<div class="row">
 				<div class="col-12">
-					<div class="register">
-						<input type="radio" name="sex" value="F" checked>
-						<label for="sex_f">Female</label>
-
-						<input type="radio" name="sex" value="M">
-						<label for="sex_m">Male</label>
-
-						<form action="CheckRegister.php" method="post">
-							<input class="register-input" name="myemail" type="email" placeholder="Email">
-							<input class="register-input" name="mypassword" type="password" placeholder="Password">
-							<input name="submit" type="submit" value="Create Account">
-						</form>
-					</div>
+				    <?php  
+					    //tomamos los datos del archivo conexion.php  
+					    include("Connection.php");  
+					    $link = connect(); 
+					    //se envia la consulta  
+					    $email="turpis@euismod.ca";
+					    $query="SELECT DISTINCT p.id_propiedad, p.capacidad, p.dormitorios, p.banyos, p.precio FROM propiedad as p, reserva_propiedad as r, user as u WHERE '$email' = r.fk_email AND r.fk_propiedad = p.id_propiedad;
+";
+					    $result = mysql_query($query, $link);  
+					    //se despliega el resultado  
+					    echo "<table>";  
+					    echo "<tr>";  
+					    echo "<th>id_propiedad</th>";  
+					    echo "<th>capacidad</th>";  
+					    echo "<th>Dormitorios</th>"; 
+					    echo "<th>Banyos</th>";
+					    echo "<th>Precio</th>";  
+					    echo "</tr>";  
+					    while ($row = mysql_fetch_row($result)){   
+					        echo "<tr>";  
+					        echo "<td>$row[0]</td>";  
+					        echo "<td>$row[1]</td>";  
+					        echo "<td>$row[2]</td>";  
+					        echo "<td>$row[3]</td>"; 
+					        echo "<td>$row[4]</td>";  
+					        echo "</tr>";  
+					    }  
+					    echo "</table>";  
+				    ?> 
 				</div>
 			</div>
 		</div>
