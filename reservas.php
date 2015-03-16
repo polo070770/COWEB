@@ -26,7 +26,7 @@
 				<ul>
 					<li><a href="index.html">Home</a></li>
 					<li><a href="register.html">Register</a></li>
-					<li><a href="login.html">Log in</a></li>
+					<li><a href="login.php">Log in</a></li>
 					<li><a href="help.html">Help</a></li>
 					<li><a href="reservas.php">Reservas></a></li>
 				</ul>
@@ -56,8 +56,9 @@
 					    $link = connect(); 
 					    //se envia la consulta  
 					    $email="turpis@euismod.ca";
-					    $query="SELECT DISTINCT p.id_propiedad, p.capacidad, p.dormitorios, p.banyos, p.precio FROM propiedad as p, reserva_propiedad as r, user as u WHERE '$email' = r.fk_email AND r.fk_propiedad = p.id_propiedad;
-";
+					    $query="SELECT DISTINCT p.id_propiedad, p.capacidad, p.dormitorios, p.banyos, p.precio 
+					    FROM propiedad as p, reserva_propiedad as r, user as u 
+					    WHERE '$email' = r.fk_email AND r.fk_propiedad = p.id_propiedad;";
 					    $result = mysql_query($query, $link);  
 					    //se despliega el resultado  
 					    echo "<table>";  

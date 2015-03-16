@@ -1,3 +1,10 @@
+<?php
+	include('CheckLogin.php'); // Includes Login Script
+
+	if(isset($_SESSION['login_user'])){
+		header("location: profile.php");
+	}
+?>
 <html>
 	<head>
 		<title>
@@ -26,7 +33,7 @@
 				<ul>
 					<li><a href="index.html">Home</a></li>
 					<li><a href="register.html">Register</a></li>
-					<li><a href="login.html">Log in</a></li>
+					<li><a href="login.php">Log in</a></li>
 					<li><a href="help.html">Help</a></li>
 				</ul>
 			</nav>
@@ -50,11 +57,13 @@
 			<div class="row">
 				<div class="col-12">
 					<div class="login">
-						<form action="CheckLogin.php" method="post">
+						<form action="" method="post">
 							<input class="login-input" name="myemail" type="email" placeholder="Email">
 							<input class="login-input" name="mypassword" type="password" placeholder="Password">
 							<input name="submit" type="submit" value="Log in">
 						</form>
+						</br>
+						<span><?php echo $error; ?></span>
 					</div>
 				</div>
 			</div>
