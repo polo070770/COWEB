@@ -1,3 +1,7 @@
+<?php
+include 'scripts/php/Session.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,14 +28,28 @@
 
 <body>
 	<div class="container">
-		<nav>
-			<ul>
-				<li><a href="index.php">Home</a></li>
-				<li><a href="register.html">Register</a></li>
-				<li><a href="login.html">Log in</a></li>
-				<li><a href="help.php">Help</a></li>
-			</ul>
-		</nav>
+		<?php
+		if (isset ( $_SESSION ['login_user'] )) {
+			echo "<nav>";
+			echo "<ul>";
+			echo "<li><a href='index.php'>Home</a></li>";
+			echo "<li><a href='profile.php'>Profile</a></li>";
+			echo "<li><a href='reservations.php'>Reservations</a></li>";
+			echo "<li><a href='help.php'>Help</a></li>";
+			echo "<li><a href='logout.php'>Log out</a></li>";
+			echo "</ul>";
+			echo "</nav>";
+		} else {
+			echo "<nav>";
+			echo "<ul>";
+			echo "<li><a href='index.php'>Home</a></li>";
+			echo "<li><a href='register.html'>Register</a></li>";
+			echo "<li><a href='login.html'>Log in</a></li>";
+			echo "<li><a href='help.php'>Help</a></li>";
+			echo "</ul>";
+			echo "</nav>";
+		}
+		?>
 
 		<div class="row">
 			<div class="col-12">
@@ -43,22 +61,6 @@
 			<div class="col-12">
 				<div id="subtitle">Enjoy like if you were in your own house,
 					wherever you are!</div>
-			</div>
-		</div>
-
-		<div class="row">
-			<div class="col-12">
-				<div class="application-form">
-					<input type="radio" name="sex" value="F" checked> <label
-						for="sex_f">Female</label> <input type="radio" name="sex"
-						value="M"> <label for="sex_m">Male</label>
-
-					<form action="scripts/php/CheckRegister.php" method="post">
-						<input name="myemail" type="email" placeholder="Email"> <input
-							name="mypassword" type="password" placeholder="Password">
-						<input name="submit" type="submit" value="Create Account">
-					</form>
-				</div>
 			</div>
 		</div>
 
