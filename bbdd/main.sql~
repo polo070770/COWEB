@@ -58,28 +58,28 @@ CREATE TABLE reserva_habitacion(
 
 );
 
-LOAD DATA INFILE '/home/maikel/Github/polo070770.github.io/bbdd/user.csv'
+LOAD DATA INFILE 'C:/Users/Maikel/Documents/eclipse_php/workspace/coweb/bbdd/user.csv'
 INTO TABLE user
 FIELDS TERMINATED BY ';'
 LINES TERMINATED BY '\n';
 
-LOAD DATA INFILE '/home/maikel/Github/polo070770.github.io/bbdd/propiedad.csv'
+LOAD DATA INFILE 'C:/Users/Maikel/Documents/eclipse_php/workspace/coweb/bbdd/propiedad.csv'
 INTO TABLE propiedad
 FIELDS TERMINATED BY ';'
 LINES TERMINATED BY '\n';
 
-LOAD DATA INFILE '/home/maikel/Github/polo070770.github.io/bbdd/habitacion.csv'
+LOAD DATA INFILE 'C:/Users/Maikel/Documents/eclipse_php/workspace/coweb/bbdd/habitacion.csv'
 INTO TABLE habitacion
 FIELDS TERMINATED BY ';'
 LINES TERMINATED BY '\n';
 
 
-LOAD DATA INFILE '/home/maikel/Github/polo070770.github.io/bbdd/reserva_propiedad.csv'
+LOAD DATA INFILE 'C:/Users/Maikel/Documents/eclipse_php/workspace/coweb/bbdd/reserva_propiedad.csv'
 INTO TABLE reserva_propiedad
 FIELDS TERMINATED BY ';'
 LINES TERMINATED BY '\n';
 
-LOAD DATA INFILE '/home/maikel/Github/polo070770.github.io/bbdd/reserva_habitacion.csv'
+LOAD DATA INFILE 'C:/Users/Maikel/Documents/eclipse_php/workspace/coweb/bbdd/reserva_habitacion.csv'
 INTO TABLE reserva_habitacion
 FIELDS TERMINATED BY ';'
 LINES TERMINATED BY '\n';
