@@ -24,7 +24,6 @@ if ($q !== "") {
 
 // Output "no suggestion " if no hint were found 
 // or output the correct values
-
 echo $hint === "" ? "No suggestion" : $hint;
 ?>
 
