@@ -27,37 +27,43 @@
             <nav>
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="login.html">Log in</a></li>
+                    <li><a href="register.php">Register</a></li>
+                    <li><a href="login.php">Log in</a></li>
                     <li><a href="help.php">Help</a></li>
                 </ul>
             </nav>
 
             <div class="row">
                 <div class="col-12">
-                    <div id="title">BED AND BREAKFAST</div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div id="subtitle">Enjoy like if you were in your own house,
-                        wherever you are!</div>
+                    <div id="title">Register in</div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12">
                     <div class="application-form">
-                        <input type="radio" name="sex" value="F" checked>
-                        <label for="sex_f">Female</label>
-                        <input type="radio" name="sex" value="M"> 
-                        <label for="sex_m">Male</label>
+                        <form action="" method="post">
+                            <div class="radio_buttons">
+                                <input name="form_gender" type="radio" value="female">
+                                <label>Female</label>
+                                <input name="form_gender" type="radio" value="male"> 
+                                <label>Male</label>
+                            </div>
 
-                        <form action="scripts/php/CheckRegister.php" method="post">
-                            <input name="myemail" type="email" placeholder="Email">
-                            <input name="mypassword" type="password" placeholder="Password">
-                            <input name="submit" type="submit" value="Create Account">
+                            <div class="inputs">
+                                <input name="form_email" type="email" placeholder="Email">
+                                <input name="form_pass" type="password" placeholder="Password">
+                            </div>
+
+                            <div class="button">
+                                <input name="form_submit" type="submit" value="Create Account">
+                            </div>
+                            <?php
+                            include 'scripts/php/CheckRegister.php';
+                            echo '<p style="color:red">';
+                            echo $error_register;
+                            echo '</p>';
+                            ?>
                         </form>
                     </div>
                 </div>

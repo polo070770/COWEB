@@ -27,32 +27,31 @@
             <nav>
                 <ul>
                     <li><a href="index.php">Home</a></li>
-                    <li><a href="register.html">Register</a></li>
-                    <li><a href="login.html">Log in</a></li>
+                    <li><a href="register.php">Register</a></li>
+                    <li><a href="login.php">Log in</a></li>
                     <li><a href="help.php">Help</a></li>
                 </ul>
             </nav>
 
             <div class="row">
                 <div class="col-12">
-                    <div id="title">BED AND BREAKFAST</div>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-12">
-                    <div id="subtitle">Enjoy like if you were in your own house,
-                        wherever you are!</div>
+                    <div id="title">Log in</div>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12">
                     <div class="application-form">
-                        <form action="scripts/php/CheckLogin.php" method="post">
-                            <input name="myemail" type="email" placeholder="Email"> <input
-                                name="mypassword" type="password" placeholder="Password">
-                            <input name="submit" type="submit" value="Log in">
+                        <form action="" method="post">
+                            <input name="form_email" type="email" placeholder="Email">
+                            <input name="form_password" type="password" placeholder="Password">
+                            <input name="form_submit" type="submit" value="Log in">
+                            <?php
+                            include 'scripts/php/CheckLogin.php';
+                            echo '<p style="color:red">';
+                            echo $error_login;
+                            echo '</p>';
+                            ?>
                         </form>
                     </div>
                 </div>

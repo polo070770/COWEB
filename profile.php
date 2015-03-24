@@ -32,6 +32,7 @@ if (!isset($_SESSION ['login_user'])) {
         <script type="text/javascript" src="scripts/javascript/AutoComplete.js"></script>
 
     </head>
+
     <body>
         <div class="container">
             <nav>
@@ -53,7 +54,7 @@ if (!isset($_SESSION ['login_user'])) {
             <div class="row">
                 <div class="col-12">
                     <div class="profile">
-                        <form name="user_profile" class="user_profile" method="post"
+                        <form class="user_profile" name="form_profile"  method="post"
                               onsubmit="return validarForm()">
                             <div>
                                 <label>Name:</label>
@@ -72,17 +73,26 @@ if (!isset($_SESSION ['login_user'])) {
                                 <input name="secondsurname" type='text' value="">
                                 <div id="ssurname_err"></div>
                             </div>
+                            
+                            <div>
+                                <input name="gender_m" type="radio" value="female">
+                                <p>Female</p>
+                                <input name="gender_f" type="radio" value="male">
+                                <p>Male</p>
+                                <div id="gender_err"></div>
+                            </div>
 
                             <div>
                                 <label>Country:</label>
                                 <input name="country" type="text" value="" 
                                        onkeyup="showHint(this.value)">
-                                <span id="txtHint"></span>
+                                <div id="txtHint"></div>
                             </div>
 
                             <div>
                                 <label>City:</label>
                                 <input name="city" type="text" value="">
+                                <div id="txtHint"></div>
                             </div>
 
                             <div>

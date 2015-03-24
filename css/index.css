@@ -25,7 +25,7 @@ body {
     min-height: 100%;
     height: auto !important;
     height: 100%;
-    margin: 0 auto -4em;
+    margin: 0 auto;
 }
 
 .footer, .push {
@@ -50,6 +50,10 @@ body {
     text-align: center;
 }
 
+.application-form .radio_buttons, .inputs, .button{
+    padding-top: 1%;
+}
+
 .application-form input[type="email"] {
     border: 1px solid #d1d1d1;
     border-radius: 20px;
@@ -70,26 +74,31 @@ body {
 
 .profile {
     width: 40%;
-    margin: auto;
+    padding-top: 2%;    
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    background-color: #E2ECEE;
 }
 
-.profile .user_profile {
+.user_profile {
     border: 1px solid #CED5D7;
-    border-radius: 6px;
+    border-radius: 10px;
     padding: 45px 45px 20px;
-    margin-top: 50px;
     background-color: white;
 }
 
-.profile .user_profile label {
-    display: block;
+.user_profile p {
+    display: inline-block;
     font-weight: bold;
 }
 
-.profile .user_profile div {
-    margin-bottom: 15px;
+.user_profile div {
+    padding-bottom: 15px;
+}
+
+.user_profile label {
+    display: block;
+    font-weight: bold;
 }
 
 .user_profile input[type="text"] {
