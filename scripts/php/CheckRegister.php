@@ -29,7 +29,7 @@ if (isset($_POST ['form_submit'])) {
         // mysql query
         $sql = "INSERT INTO $tbl_name (email, contrasenya, genero) "
                 . "VALUES ('$email', '$password', '$gender')";
-        $result = mysql_query($sql, $link) or die(mysql_error());
+        $result = mysql_query($sql, $link);
 
         if ($result) {
             header("location: ../../login.php");

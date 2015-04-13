@@ -28,8 +28,24 @@ if (!isset($_SESSION ['login_user'])) {
 
         <link rel="stylesheet" type="text/css" href="css/index.css">
 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
         <script type="text/javascript" src="scripts/javascript/CheckProfile.js"></script>
         <script type="text/javascript" src="scripts/javascript/AutoComplete.js"></script>
+        <script type="text/javascript" src="scripts/javascript/FillValueProfile.js"></script>
+        <script>
+            $(document).ready(function () {
+                completeForm("<?php echo $_SESSION['login_user'] ?>");
+
+                $("form").submit(function () {
+
+                    validateForm("<?php echo $_SESSION['login_user'] ?>");
+                    return false;
+
+                });
+
+            });
+        </script>
 
     </head>
 
@@ -54,8 +70,8 @@ if (!isset($_SESSION ['login_user'])) {
             <div class="row">
                 <div class="col-12">
                     <div class="profile">
-                        <form class="user_profile" name="form_profile"  method="post"
-                              onsubmit="return validarForm()">
+                        <form class="user_profile" name="form_profile" method="post"
+                              >
                             <div>
                                 <label>Name:</label>
                                 <input name="name" type='text' value="">
@@ -73,11 +89,11 @@ if (!isset($_SESSION ['login_user'])) {
                                 <input name="secondsurname" type='text' value="">
                                 <div id="ssurname_err"></div>
                             </div>
-                            
+
                             <div>
-                                <input name="gender_m" type="radio" value="female">
+                                <input name="gender_f" type="radio" value="female">
                                 <p>Female</p>
-                                <input name="gender_f" type="radio" value="male">
+                                <input name="gender_m" type="radio" value="male">
                                 <p>Male</p>
                                 <div id="gender_err"></div>
                             </div>
@@ -86,13 +102,14 @@ if (!isset($_SESSION ['login_user'])) {
                                 <label>Country:</label>
                                 <input name="country" type="text" value="" 
                                        onkeyup="showHint(this.value)">
-                                <div id="txtHint"></div>
+                                <div id="txtHint_country"></div>
                             </div>
 
                             <div>
                                 <label>City:</label>
-                                <input name="city" type="text" value="">
-                                <div id="txtHint"></div>
+                                <input name="city" type="text" value=""
+                                       onkeyup="showHint(this.value)">
+                                <div id="txtHint_city"></div>
                             </div>
 
                             <div>
@@ -102,8 +119,10 @@ if (!isset($_SESSION ['login_user'])) {
                             </div>
 
                             <div>
-                                <input type='submit' value='Save it'>
+                                <input name='submit' type='submit' value='Save it'>
+                                <div id="log_submit"></div>
                             </div>
+                            
                         </form>
                     </div>
                 </div>
@@ -115,7 +134,5 @@ if (!isset($_SESSION ['login_user'])) {
         <div class="footer">
             <p>© University of Barcelona.</p>
         </div>
-
-
     </body>
 </html>
