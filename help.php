@@ -53,17 +53,41 @@ include 'scripts/php/Session.php';
 
             <div class="row">
                 <div class="col-12">
-                    <div id="title">BED AND BREAKFAST</div>
+                    <div id="title">Getting Started</div>
                 </div>
             </div>
 
             <div class="row">
-                <div class="col-12">
-                    <div id="subtitle">Enjoy like if you were in your own house,
-                        wherever you are!</div>
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <div id="subtitle">How Bed&Breakfast Works</div>
+                    <p style="text-align: center">Learn what Bed&Breakfast is all 
+                        about, and discover the tools that
+                    help make sharing easy, reliable, and safe. </p>
                 </div>
+                <div class="col-4"></div>
             </div>
 
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <div id="subtitle">Hosting Basics</div>
+                    <p style="text-align: center">Learn how to list your space,
+                        respond to requests, and welcome guests into your home. </p>
+                </div>
+                <div class="col-4"></div>
+            </div>
+
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <div id="subtitle">Traveling Basics</div>
+                    <p style="text-align: center">Learn how to search for the 
+                        perfect place, contact hosts, and prepare
+                        for a memorable trip. </p>
+                </div>
+                <div class="col-4"></div>
+            </div>
             <div class="push"></div>
         </div>
 

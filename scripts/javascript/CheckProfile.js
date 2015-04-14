@@ -85,14 +85,12 @@ function validateForm(email_id) {
                 country: country, city: city},
             complete: function (jqXHR, textStatus) {
                 var log = document.getElementById("log_submit");
-                log.innerHTML = "Update completed!";
+                log.innerHTML = "The profile has been updated!";
                 log.style.color = "blue";
                 runEffect($("#log_submit"), "bounce");
                 runEffect($("input[name='submit']"), "highlight");
                 runEffect($("#log_submit"), "drop");
             }
-        }).done(function (response) {
-
         });
 
     }
