@@ -80,9 +80,11 @@ function validateForm(email_id) {
             type: "POST",
             url: "scripts/php/UpdateProfile.php",
             dataType: "json",
-            data: {email_id: email_id, name: name, firstsurname: firstsurname,
+            data: {
+                email_id: email_id, name: name, firstsurname: firstsurname,
                 secondsurname: secondsurname, gender: gender, email: email,
-                country: country, city: city},
+                country: country, city: city
+            },
             complete: function (jqXHR, textStatus) {
                 var log = document.getElementById("log_submit");
                 log.innerHTML = "The profile has been updated!";

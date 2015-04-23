@@ -31,8 +31,10 @@ if ($city === "") {
     }
 } else {
     $country = strtolower($country);
-    if ($country === "spain") {
+    $city = strtolower($city);
+    $len = strlen($city);
 
+    if ($country === "spain") {
         $city = strtolower($city);
         $len = strlen($city);
         foreach ($cities_spain as $name) {

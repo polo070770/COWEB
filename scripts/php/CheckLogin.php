@@ -8,7 +8,7 @@ if (isset($_POST ['form_submit'])) {
     if (empty($_POST ['form_email']) || empty($_POST ['form_password'])) {
         $error_login = "Email and password cannot be empty.";
     } else {
-        include ("Connection.php");
+        include("Connection.php");
 
         // database connect
         $link = connect();

@@ -1,6 +1,6 @@
 <?php
 
-include ("Connection.php");
+include("Connection.php");
 
 // database connect
 $link = connect();
@@ -36,14 +36,14 @@ $city = stripslashes($city);
 $city = mysql_real_escape_string($city);
 
 $sql = "UPDATE $tbl_name SET "
-        . "email='$email',"
-        . "nombre='$name',"
-        . "apellido_1='$firstsurname',"
-        . "apellido_2='$secondsurname',"
-        . "genero='$gender',"
-        . "pais='$country',"
-        . "ciudad='$city' "
-        . "WHERE email='$email_id'";
+    . "email='$email',"
+    . "nombre='$name',"
+    . "apellido_1='$firstsurname',"
+    . "apellido_2='$secondsurname',"
+    . "genero='$gender',"
+    . "pais='$country',"
+    . "ciudad='$city' "
+    . "WHERE email='$email_id'";
 
 $result = mysql_query($sql, $link);
 

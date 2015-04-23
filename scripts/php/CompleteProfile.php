@@ -1,6 +1,6 @@
 <?php
 
-include ("Connection.php");
+include("Connection.php");
 
 // database connect
 $link = connect();

@@ -6,7 +6,7 @@ if (isset($_POST ['form_submit'])) {
     if (empty($_POST ["form_email"]) || empty($_POST ["form_pass"]) || empty($_POST ["form_gender"])) {
         $error_register = "Gender, email and password cannot be empty.";
     } else {
-        include ("Connection.php");
+        include("Connection.php");
 
         $link = connect();
 
@@ -28,7 +28,7 @@ if (isset($_POST ['form_submit'])) {
 
         // mysql query
         $sql = "INSERT INTO $tbl_name (email, contrasenya, genero) "
-                . "VALUES ('$email', '$password', '$gender')";
+            . "VALUES ('$email', '$password', '$gender')";
         $result = mysql_query($sql, $link);
 
         if ($result) {
