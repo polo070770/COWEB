@@ -68,7 +68,7 @@ include 'scripts/php/Session.php';
 
     <div class="row">
         <div class="col-12">
-            <div class="search">
+            <div class="application-form">
                 <form method="get" action="http://www.google.com/search">
                     <input type="text" name="q" placeholder="Search it in Google..."/>
                     <input type="submit" value="Buscar"/>

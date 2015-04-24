@@ -43,9 +43,14 @@
         <div class="col-12">
             <div class="application-form">
                 <form action="" method="post">
-                    <input name="form_email" type="email" placeholder="Email">
-                    <input name="form_password" type="password" placeholder="Password">
-                    <input name="form_submit" type="submit" value="Log in">
+                    <div class="inputs">
+                        <input name="form_email" type="email" placeholder="Email">
+                        <input name="form_password" type="password" placeholder="Password">
+                    </div>
+
+                    <div class="button">
+                        <input name="form_submit" type="submit" value="Log in">
+                    </div>
                     <?php
                     include 'scripts/php/CheckLogin.php';
                     echo '<p style="color:red">';

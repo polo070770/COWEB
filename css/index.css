@@ -198,15 +198,22 @@ nav ul li a:hover {
     }
 }
 
-/*------ Register.php, Login.php ------*/
+/*------ FORMS ------*/
 .application-form {
     padding-top: 10%;
+    padding-bottom: 5%;
     background: none;
     text-align: center;
 }
 
 .application-form .radio_buttons, .inputs, .button {
     padding-top: 1%;
+}
+
+.application-form input[type="text"] {
+    border: 1px solid #d1d1d1;
+    border-radius: 20px;
+    padding: 6px 15px 6px 25px;
 }
 
 .application-form input[type="email"] {
@@ -269,31 +276,46 @@ nav ul li a:hover {
     padding: 6px 5px 6px 5px;
 }
 
-/*------ Index.php ------*/
-.search {
-    text-align: center;
-    padding-top: 2%;
-    padding-bottom: 2%;
-}
-
-.search input[type="text"] {
-    border: 1px solid #d1d1d1;
-    border-radius: 20px;
-    padding: 6px 15px 6px 25px;
-}
-
-.search input[type="submit"] {
-    border: 1px solid #d1d1d1;
-    border-radius: 20px;
-    padding: 6px 5px 6px 5px;
-}
-
 /*------ Reservations.php ------*/
-.reservations-nav {
-    text-align: center;
+.reservations {
+    padding-top: 5%;
+    padding-left: 1%;
+    padding-right: 1%;
 }
 
-.reservations-nav li {
+.reservations ul {
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+.reservations li {
+    font-size: 15px;
+    line-height: 2;
+}
+
+.reservations-table {
+    border: 1px solid #cbcbcb;
+    width: 100%;
+}
+
+.reservations-table th {
+    font-weight: bold;
+}
+
+#reservations_header_name {
     font-size: 20px;
-    line-height: 2.43;
+}
+
+.reservations-table-odd td {
+    background-color: #ffffff;
+}
+
+.reservations-table td, th {
+    border: 1px solid #cbcbcb;
+    border-width: 5px 0 1px 0;
+    border-bottom: 2px solid #cbcbcb;
+}
+
+.reservations-table tbody > tr:last-child > td {
+    border-bottom-width: 0;
 }

@@ -27,6 +27,23 @@ if (!isset($_SESSION ['login_user'])) {
     <meta charset="utf-8"/>
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/javascript/FillReservations.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            completeTable("<?php echo $_SESSION['login_user'] ?>", "PROPERTIES");
+
+            $('#properties').on("click", function () {
+                completeTable("<?php echo $_SESSION['login_user'] ?>", "PROPERTIES");
+            });
+
+            $('#rooms').on("click", function () {
+                completeTable("<?php echo $_SESSION['login_user'] ?>", "ROOMS");
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -48,18 +65,41 @@ if (!isset($_SESSION ['login_user'])) {
     </div>
 
     <div class="row">
-        <div class="col-3">
-            <div id="reservations-nav">
+        <div class="reservations">
+            <div class="col-2">
                 <ul>
-                    <li>Reservas de propiedades</li>
-                    <li>Reservas de habitaciones</li>
+                    <li>
+                        <div id="properties">Booked properties</div>
+                    </li>
+                    <li>
+                        <div id="rooms">Booked rooms</div>
+                    </li>
                 </ul>
             </div>
-        </div>
 
-        <div class="col-9">
-            <div id="reservations-table">
+            <div class="col-10">
 
+                <table class="reservations-table">
+
+
+                    <thead>
+                    <tr>
+                        <th colspan="4">
+                            <div id="reservations_header_name">PROPERTIES</div>
+                        </th>
+                    </tr>
+
+                    <tr>
+                        <th>Location</th>
+                        <th>Guest</th>
+                        <th>Date</th>
+                        <th>Description</th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>
