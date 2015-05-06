@@ -1,4 +1,4 @@
-function validateForm(email_id) {
+function validateProfile(email_id) {
 
     function runEffect(id, effect) {
         var options = {};

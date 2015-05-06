@@ -35,12 +35,12 @@ if (!isset($_SESSION ['login_user'])) {
     <script type="text/javascript" src="scripts/javascript/FillValueProfile.js"></script>
     <script>
         $(document).ready(function () {
+
             completeForm("<?php echo $_SESSION['login_user'] ?>");
 
             $("form").submit(function () {
 
-                validateForm("<?php echo $_SESSION['login_user'] ?>");
-                return false;
+                return validateProfile("<?php echo $_SESSION['login_user'] ?>");
 
             });
 

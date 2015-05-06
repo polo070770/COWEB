@@ -1,47 +1,37 @@
 <?php
 
-// var to show error
-$error_login = "";
+include("Connection.php");
 
-if (isset($_POST ['form_submit'])) {
+// username and password sent from form
+$username = isset($_POST ['username']) ? $_POST ['username'] : 'nousername';
+$password = isset($_POST ['password']) ? $_POST ['password'] : 'nopassword';
 
-    if (empty($_POST ['form_email']) || empty($_POST ['form_password'])) {
-        $error_login = "Email and password cannot be empty.";
-    } else {
-        include("Connection.php");
+// database connect
+$link = connect();
 
-        // database connect
-        $link = connect();
+// table name
+$tbl_name = "user";
 
-        // table name
-        $tbl_name = "user";
+// To protect MySQL injection (more detail about MySQL injection)
+$username = stripslashes($username);
+$password = stripslashes($password);
+$username = mysql_real_escape_string($username);
+$password = mysql_real_escape_string($password);
 
-        // username and password sent from form
-        $email = isset($_POST ['form_email']) ? $_POST ['form_email'] : 'nomail';
-        $password = isset($_POST ['form_password']) ? $_POST ['form_password'] : 'nopass';
+// SQL query
+$sql = "SELECT * FROM $tbl_name WHERE email='$username' and contrasenya='$password'";
+$result = mysql_query($sql, $link);
 
-        // To protect MySQL injection (more detail about MySQL injection)
-        $email = stripslashes($email);
-        $password = stripslashes($password);
-        $email = mysql_real_escape_string($email);
-        $password = mysql_real_escape_string($password);
+// Mysql_num_row is counting table row
+$count = mysql_num_rows($result);
 
-        // SQL query
-        $sql = "SELECT * FROM $tbl_name WHERE email='$email' and contrasenya='$password'";
-        $result = mysql_query($sql, $link);
-
-        // Mysql_num_row is counting table row
-        $count = mysql_num_rows($result);
-
-        // If result matched $email and $password, table row must be 1 row
-        if ($count == 1) {
-            session_start();
-            $_SESSION ['login_user'] = $email; // Initializing Session
-            header("location: ../../profile.php"); // Redirecting To Other Page
-        } else {
-            $error_login = "Wrong email or password.";
-        }
-        mysql_close($link); // Closing Connection
-    }
+// If result matched $email and $password, table row must be 1 row
+if ($count == 1) {
+    session_start();
+    $_SESSION['login_user'] = $username; // Initializing Session
+    echo 1;
+} else {
+    echo 0;
 }
-?>
+
+mysql_close($link); // Closing Connection

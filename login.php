@@ -20,6 +20,20 @@
     <meta charset="utf-8"/>
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/javascript/CheckLogin.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#email").focus();
+            $("#submit").click(function () {
+                return validateLogin($("#email"), $("#password"));
+            });
+        });
+    </script>
+
 </head>
 
 <body>
@@ -41,24 +55,17 @@
 
     <div class="row">
         <div class="col-12">
-            <div class="application-form">
-                <form action="" method="post">
-                    <div class="inputs">
-                        <input name="form_email" type="email" placeholder="Email">
-                        <input name="form_password" type="password" placeholder="Password">
-                    </div>
+            <form class="application-form">
+                <div class="inputs">
+                    <input id="email" type="email" placeholder="Email">
+                    <input id="password" type="password" placeholder="Password">
+                </div>
 
-                    <div class="button">
-                        <input name="form_submit" type="submit" value="Log in">
-                    </div>
-                    <?php
-                    include 'scripts/php/CheckLogin.php';
-                    echo '<p style="color:red">';
-                    echo $error_login;
-                    echo '</p>';
-                    ?>
-                </form>
-            </div>
+                <div class="button">
+                    <input id="submit" type="submit" value="Log in">
+                </div>
+            </form>
+            <div id="login-result"></div>
         </div>
     </div>
 
