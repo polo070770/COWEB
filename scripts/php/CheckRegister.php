@@ -1,43 +1,35 @@
 <?php
 
-$error_register = "";
+include("Connection.php");
 
-if (isset($_POST ['form_submit'])) {
-    if (empty($_POST ["form_email"]) || empty($_POST ["form_pass"]) || empty($_POST ["form_gender"])) {
-        $error_register = "Gender, email and password cannot be empty.";
-    } else {
-        include("Connection.php");
+// username and password sent from form
+$username = isset($_POST ["username"]) ? $_POST ["username"] : "nousername";
+$password = isset($_POST ["password"]) ? $_POST ["password"] : "nopassword";
+$gender = isset($_POST ["gender"]) ? $_POST ["gender"] : "nogender";
 
-        $link = connect();
+// database connect
+$link = connect();
 
-        // table of users
-        $tbl_name = "user";
+// table of users
+$tbl_name = "user";
 
-        // username and password sent from form
-        $email = isset($_POST ["form_email"]) ? $_POST ["form_email"] : "nomail";
-        $password = isset($_POST ["form_pass"]) ? $_POST ["form_pass"] : "nopass";
-        $gender = isset($_POST ["form_gender"]) ? $_POST ["form_gender"] : "nogender";
+// To protect MySQL injection
+$username = stripslashes($username);
+$password = stripslashes($password);
+$gender = stripslashes($gender);
+$username = mysql_real_escape_string($username);
+$password = mysql_real_escape_string($password);
+$gender = mysql_real_escape_string($gender);
 
-        // to protect mysql injection
-        $email = stripslashes($email);
-        $password = stripslashes($password);
-        $gender = stripslashes($gender);
-        $email = mysql_real_escape_string($email);
-        $password = mysql_real_escape_string($password);
-        $gender = mysql_real_escape_string($gender);
+// MySQL query
+$sql = "INSERT INTO $tbl_name (email, contrasenya, genero) "
+    . "VALUES ('$username', '$password', '$gender')";
+$result = mysql_query($sql, $link);
 
-        // mysql query
-        $sql = "INSERT INTO $tbl_name (email, contrasenya, genero) "
-            . "VALUES ('$email', '$password', '$gender')";
-        $result = mysql_query($sql, $link);
-
-        if ($result) {
-            header("location: ../../login.php");
-        } else {
-            $error_register = "You registration isn'nt completed, try again.";
-        }
-
-        mysql_close($link); // Closing Connection
-    }
+if ($result) {
+    echo 1;
+} else {
+    echo 0;
 }
-?>
+
+mysql_close($link); // Closing Connection

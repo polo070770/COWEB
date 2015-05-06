@@ -20,6 +20,18 @@
     <meta charset="utf-8"/>
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/javascript/CheckRegister.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $("#email").focus();
+            $("#submit").click(function () {
+                return validateRegister($("#email"), $("#password"));
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -41,31 +53,24 @@
 
     <div class="row">
         <div class="col-12">
-            <div class="application-form">
-                <form action="" method="post">
-                    <div class="radio_buttons">
-                        <input name="form_gender" type="radio" value="female">
-                        <label>Female</label>
-                        <input name="form_gender" type="radio" value="male">
-                        <label>Male</label>
-                    </div>
+            <form class="application-form">
+                <div class="radio_buttons">
+                    <input name="gender" id="gender_f" type="radio" value="female">
+                    <label>Female</label>
+                    <input name="gender" id="gender_m" type="radio" value="male">
+                    <label>Male</label>
+                </div>
 
-                    <div class="inputs">
-                        <input name="form_email" type="email" placeholder="Email">
-                        <input name="form_pass" type="password" placeholder="Password">
-                    </div>
+                <div class="inputs">
+                    <input id="email" type="email" placeholder="Email">
+                    <input id="password" type="password" placeholder="Password">
+                </div>
 
-                    <div class="button">
-                        <input name="form_submit" type="submit" value="Create Account">
-                    </div>
-                    <?php
-                    include 'scripts/php/CheckRegister.php';
-                    echo '<p style="color:red">';
-                    echo $error_register;
-                    echo '</p>';
-                    ?>
-                </form>
-            </div>
+                <div class="button">
+                    <input id="submit" type="submit" value="Create Account">
+                </div>
+            </form>
+            <div id="form-result"></div>
         </div>
     </div>
 

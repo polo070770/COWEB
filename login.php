@@ -65,7 +65,7 @@
                     <input id="submit" type="submit" value="Log in">
                 </div>
             </form>
-            <div id="login-result"></div>
+            <div id="form-result"></div>
         </div>
     </div>
 

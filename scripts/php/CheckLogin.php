@@ -3,8 +3,8 @@
 include("Connection.php");
 
 // username and password sent from form
-$username = isset($_POST ['username']) ? $_POST ['username'] : 'nousername';
-$password = isset($_POST ['password']) ? $_POST ['password'] : 'nopassword';
+$username = isset($_POST ["username"]) ? $_POST ["username"] : "nousername";
+$password = isset($_POST ["password"]) ? $_POST ["password"] : "nopassword";
 
 // database connect
 $link = connect();
@@ -12,7 +12,7 @@ $link = connect();
 // table name
 $tbl_name = "user";
 
-// To protect MySQL injection (more detail about MySQL injection)
+// To protect MySQL injection
 $username = stripslashes($username);
 $password = stripslashes($password);
 $username = mysql_real_escape_string($username);
