@@ -51,7 +51,7 @@ if (!isset($_SESSION ['login_user'])) {
     <nav>
         <ul>
             <li><a href="index.php">Home</a></li>
-            <li><a href="profile.php">Profile</a></li>
+            <li><a href="profile.html">Profile</a></li>
             <li><a href="reservations.php">Reservations</a></li>
             <li><a href="help.php">Help</a></li>
             <li><a href="logout.php">Log out</a></li>

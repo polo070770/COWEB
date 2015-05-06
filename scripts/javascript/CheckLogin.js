@@ -28,7 +28,7 @@ function validateLogin(username, password) {
                     login_result.html('<span>Email or Password Incorrect!</span>');
                 }
                 else if (responseText == 1) {
-                    window.location = "../../profile.php";
+                    window.location = "../../profile.html";
                 }
                 else {
                     alert("Problem with sql query");
