@@ -1,11 +1,11 @@
-function validateLogin(username, password) {
+function validateLogin(email, password) {
 
     var login_result = $("#form-result");
 
     login_result.html("Loading...");
 
-    if (username.val() == '') {
-        username.focus();
+    if (email.val() == '') {
+        email.focus();
         login_result.html('<span>Enter the email</span>');
         return false;
     }
@@ -16,9 +16,10 @@ function validateLogin(username, password) {
         return false;
     }
 
-    if (username.val() != '' && password.val() != '') {
+    if (email.val() != '' && password.val() != '') {
 
-        var UrlToPass = "action=login&username=" + username.val() + "&password=" + password.val();
+        var UrlToPass = "email=" + email.val() + "&password=" + password.val();
+
         $.ajax({
             type: "POST",
             data: UrlToPass,
@@ -28,7 +29,7 @@ function validateLogin(username, password) {
                     login_result.html('<span>Email or Password Incorrect!</span>');
                 }
                 else if (responseText == 1) {
-                    window.location = "../../profile.html";
+                    window.location = "../../profile.php";
                 }
                 else {
                     alert("Problem with sql query");

@@ -40,7 +40,7 @@ function validateRegister(username, password) {
                     register_result.html('<span>Cannot register!</span>');
                 }
                 else if (responseText == 1) {
-                    window.location = '../../login.html';
+                    window.location = '../../login.php';
                 }
                 else {
                     alert('Problem with sql query');

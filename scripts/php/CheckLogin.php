@@ -3,7 +3,7 @@
 include("Connection.php");
 
 // username and password sent from form
-$username = isset($_POST ["username"]) ? $_POST ["username"] : "nousername";
+$email = isset($_POST ["email"]) ? $_POST ["email"] : "noemail";
 $password = isset($_POST ["password"]) ? $_POST ["password"] : "nopassword";
 
 // database connect
@@ -13,13 +13,13 @@ $link = connect();
 $tbl_name = "user";
 
 // To protect MySQL injection
-$username = stripslashes($username);
+$email = stripslashes($email);
 $password = stripslashes($password);
-$username = mysql_real_escape_string($username);
+$email = mysql_real_escape_string($email);
 $password = mysql_real_escape_string($password);
 
 // SQL query
-$sql = "SELECT * FROM $tbl_name WHERE email='$username' and contrasenya='$password'";
+$sql = "SELECT * FROM $tbl_name WHERE email='$email' and contrasenya='$password'";
 $result = mysql_query($sql, $link);
 
 // Mysql_num_row is counting table row
@@ -28,7 +28,7 @@ $count = mysql_num_rows($result);
 // If result matched $email and $password, table row must be 1 row
 if ($count == 1) {
     session_start();
-    $_SESSION['login_user'] = $username; // Initializing Session
+    $_SESSION['login_user'] = $email; // Initializing Session
     echo 1;
 } else {
     echo 0;

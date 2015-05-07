@@ -36,7 +36,7 @@ if (!isset($_SESSION ['login_user'])) {
     <script>
         $(document).ready(function () {
 
-            completeForm("<?php echo $_SESSION['login_user'] ?>");
+            completeProfile("<?php echo $_SESSION['login_user'] ?>");
 
             $("form").submit(function () {
 

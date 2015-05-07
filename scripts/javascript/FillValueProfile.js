@@ -1,4 +1,4 @@
-function completeForm(id) {
+function completeProfile(id) {
 
     var getDetails = function (email) {
         return $.getJSON("scripts/php/CompleteProfile.php", {"email": email});
