@@ -16,7 +16,7 @@ function validateRegister(username, password) {
         return false;
     }
 
-    if (!$("#gender_f").is(":checked") && !$("#gender_m").is(":checked")){
+    if (!$("#gender_f").is(":checked") && !$("#gender_m").is(":checked")) {
         register_result.html("<span>Must select one gender</span>");
     }
 

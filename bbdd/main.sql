@@ -22,6 +22,9 @@ CREATE TABLE propiedad (
 
   id_propiedad INTEGER PRIMARY KEY NOT NULL,
 
+  ubicacion    VARCHAR(50),
+  anfitrion    VARCHAR(50),
+
   capacidad    INTEGER,
   dormitorios  INTEGER,
   banyos       INTEGER,
@@ -32,6 +35,9 @@ CREATE TABLE propiedad (
 CREATE TABLE habitacion (
 
   id_habitacion INTEGER PRIMARY KEY NOT NULL,
+
+  ubicacion    VARCHAR(50),
+  anfitrion    VARCHAR(50),
 
   capacidad     INTEGER,
   camas         INTEGER,
@@ -46,8 +52,6 @@ CREATE TABLE reserva_propiedad (
   fk_email     VARCHAR(50),
   fk_propiedad INTEGER,
 
-  ubicacion    VARCHAR(50),
-  anfitrion    VARCHAR(50),
   fecha_ini    DATE,
   fecha_fin    DATE,
 
@@ -61,10 +65,8 @@ CREATE TABLE reserva_habitacion (
   fk_email      VARCHAR(50),
   fk_habitacion INTEGER,
 
-  ubicacion     VARCHAR(50),
-  anfitrion     VARCHAR(50),
-  fecha_ini     DATE,
-  fecha_fin     DATE,
+  fecha_ini    DATE,
+  fecha_fin    DATE,
 
   FOREIGN KEY (fk_email) REFERENCES user (email),
   FOREIGN KEY (fk_habitacion) REFERENCES habitacion (id_habitacion)

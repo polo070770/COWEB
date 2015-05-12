@@ -7,23 +7,25 @@ $link = connect();
 
 // username and password sent from form
 $email = isset($_GET ['email']) ? $_GET ['email'] : 'nomail';
-
 $table_name = isset($_GET['table_id']) ? $_GET['table_id'] : 'no_tableid';
-
-if ($table_name == "PROPERTIES") {
-    // table name
-    $tbl_name = "reserva_propiedad";
-} else if ($table_name == "ROOMS") {
-    // table name
-    $tbl_name = "reserva_habitacion";
-}
 
 // To protect MySQL injection (more detail about MySQL injection)
 $email = stripslashes($email);
 $email = mysql_real_escape_string($email);
 
 // SQL query
-$sql = "SELECT * FROM $tbl_name WHERE fk_email='$email'";
+if ($table_name == "PROPERTIES") {
+
+    $sql = "select t1.ubicacion, t1.anfitrion, t2.fecha_ini, t2.fecha_fin
+          FROM propiedad as t1 INNER JOIN reserva_propiedad as t2
+            ON t2.fk_email = '$email' AND t2.fk_propiedad = t1.id_propiedad;";
+} else if ($table_name == "ROOMS") {
+
+    $sql = "select t1.ubicacion, t1.anfitrion, t2.fecha_ini, t2.fecha_fin
+          FROM habitacion as t1 INNER JOIN reserva_habitacion as t2
+            ON t2.fk_email = '$email' AND t2.fk_habitacion = t1.id_habitacion;";
+}
+
 $result = mysql_query($sql, $link);
 
 $i = 0;
@@ -35,7 +37,6 @@ while ($row = mysql_fetch_assoc($result)) {
     $json_row['anfitrion'] = $row['anfitrion'];
     $json_row['fecha_ini'] = $row['fecha_ini'];
     $json_row['fecha_fin'] = $row['fecha_fin'];
-    $json_row['descripcion'] = $row['fk_propiedad'];
     $jsondata[$i] = $json_row;
     $i++;
 }

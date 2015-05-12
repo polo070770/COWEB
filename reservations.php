@@ -30,6 +30,7 @@ if (!isset($_SESSION ['login_user'])) {
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script type="text/javascript" src="scripts/javascript/FillReservations.js"></script>
+    <script type="text/javascript" src="scripts/javascript/FillNewReservations.js"></script>
     <script>
         $(document).ready(function () {
 
@@ -41,6 +42,10 @@ if (!isset($_SESSION ['login_user'])) {
 
             $('#rooms').on("click", function () {
                 completeTable("<?php echo $_SESSION['login_user'] ?>", "ROOMS");
+            });
+
+            $("#reservations").on("click", function () {
+                fillNewReservations();
             });
         });
     </script>
@@ -71,32 +76,24 @@ if (!isset($_SESSION ['login_user'])) {
                     <li>
                         <div id="properties">Booked properties</div>
                     </li>
+
                     <li>
                         <div id="rooms">Booked rooms</div>
+                    </li>
+
+                    <li>
+                        <div id="reservations">Search for new reservations</div>
                     </li>
                 </ul>
             </div>
 
             <div class="col-10">
-
                 <table class="reservations-table">
-
-
                     <thead>
-                    <tr>
-                        <th colspan="4">
-                            <div id="reservations_header_name">PROPERTIES</div>
-                        </th>
-                    </tr>
+                    <tr id="reservations_header_1"></tr>
 
-                    <tr>
-                        <th>Location</th>
-                        <th>Guest</th>
-                        <th>Date</th>
-                        <th>Description</th>
-                    </tr>
+                    <tr id="reservations_header_2"></tr>
                     </thead>
-
                     <tbody>
                     </tbody>
                 </table>
