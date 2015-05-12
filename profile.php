@@ -12,8 +12,8 @@ if (!isset($_SESSION ['login_user'])) {
 
     <meta name="description"
           content="
-              Alquila alojamientos de anfitriones en diferentes paÃ­ses.
-              Disfruta como si estÃ©s en tu propia casa, vayas donde vayas.
+              Alquila alojamientos de anfitriones en diferentes países.
+              Disfruta como si estés en tu propia casa, vayas donde vayas.
               ">
 
     <meta name="keywords"
@@ -27,21 +27,29 @@ if (!isset($_SESSION ['login_user'])) {
     <meta charset="utf-8"/>
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
     <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
     <script type="text/javascript" src="scripts/javascript/CheckProfile.js"></script>
     <script type="text/javascript" src="scripts/javascript/AutoComplete.js"></script>
     <script type="text/javascript" src="scripts/javascript/FillValueProfile.js"></script>
+    <script type="text/javascript" src="scripts/javascript/GetCountry.js"></script>
     <script>
         $(document).ready(function () {
 
             completeProfile("<?php echo $_SESSION['login_user'] ?>");
 
-            $("form").submit(function () {
+            $("#submit_form").click(function () {
+                validateProfile("<?php echo $_SESSION['login_user']?>");
+            })
 
-                return validateProfile("<?php echo $_SESSION['login_user'] ?>");
-
+            $("#country_list").keyup(function (e) {
+                if (e.which >= 65 && e.which <= 90) {
+                    return getCountry(this.value);
+                }
             });
 
         });
@@ -70,8 +78,7 @@ if (!isset($_SESSION ['login_user'])) {
     <div class="row">
         <div class="col-12">
             <div class="profile">
-                <form class="user_profile" name="form_profile" method="post"
-                    >
+                <form class="user_profile" name="form_profile">
                     <div>
                         <label>Name:</label>
                         <input name="name" type='text' value="">
@@ -105,19 +112,8 @@ if (!isset($_SESSION ['login_user'])) {
                     </div>
 
                     <div>
-                        <label>Country:</label>
-                        <input name="country" type="text" value=""
-                               onkeyup="showHint(this.value)">
-
-                        <div id="txtHint_country"></div>
-                    </div>
-
-                    <div>
-                        <label>City:</label>
-                        <input name="city" type="text" value=""
-                               onkeyup="showHint(this.value)">
-
-                        <div id="txtHint_city"></div>
+                        <label for="country_list">Country:</label>
+                        <input id="country_list" name="country" type="text" value=""">
                     </div>
 
                     <div>
@@ -128,7 +124,7 @@ if (!isset($_SESSION ['login_user'])) {
                     </div>
 
                     <div>
-                        <input name='submit' type='submit' value='Save it'>
+                        <input id="submit_form" name='submit' type='button' value='Save it'>
 
                         <div id="log_submit"></div>
                     </div>

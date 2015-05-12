@@ -23,7 +23,6 @@ function fillNewReservations() {
             xmlDoc = $.parseXML(xmlhttp.responseText);
 
             var html = "";
-
             var rooms = xmlDoc.getElementsByTagName("habitacion");
             for (var i = 0; i < rooms.length; i++) {
 

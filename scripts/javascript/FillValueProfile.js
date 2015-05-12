@@ -10,7 +10,6 @@ function completeProfile(id) {
         $("input[name='firstsurname']").val(response.first_surname);
         $("input[name='secondsurname']").val(response.second_surname);
         $("input[name='country']").val(response.country);
-        $("input[name='city']").val(response.city);
 
         if (response.gender === "male") {
             $("input[name='gender_m']").prop('checked', true);

@@ -28,7 +28,6 @@ while ($fila = mysql_fetch_assoc($result)) {
     $jsondata['second_surname'] = $fila['apellido_2'];
     $jsondata['gender'] = $fila['genero'];
     $jsondata['country'] = $fila['pais'];
-    $jsondata['city'] = $fila['ciudad'];
 }
 
 mysql_close($link); // Closing Connection

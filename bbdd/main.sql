@@ -13,8 +13,7 @@ CREATE TABLE user (
   apellido_2  VARCHAR(50),
   genero      VARCHAR(10),
   contrasenya VARCHAR(50),
-  pais        VARCHAR(50),
-  ciudad      VARCHAR(50)
+  pais        VARCHAR(50)
 
 );
 

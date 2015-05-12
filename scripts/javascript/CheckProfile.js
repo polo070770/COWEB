@@ -37,7 +37,6 @@ function validateProfile(email_id) {
     var radio_male = document.forms["form_profile"]["gender_m"].checked;
     var email = document.forms["form_profile"]["email"].value;
     var country = document.forms["form_profile"]["country"].value;
-    var city = document.forms["form_profile"]["city"].value;
     var pattern = /\S+@\S+\.\S+/;
     var right = true;
 
@@ -81,14 +80,24 @@ function validateProfile(email_id) {
             url: "scripts/php/UpdateProfile.php",
             dataType: "json",
             data: {
-                email_id: email_id, name: name, firstsurname: firstsurname,
-                secondsurname: secondsurname, gender: gender, email: email,
-                country: country, city: city
+                email_id: email_id,
+                name: name,
+                firstsurname: firstsurname,
+                secondsurname: secondsurname,
+                gender: gender,
+                email: email,
+                country: country
             },
-            complete: function (jqXHR, textStatus) {
-                var log = document.getElementById("log_submit");
-                log.innerHTML = "The profile has been updated!";
-                log.style.color = "blue";
+            success: function(response){
+                var log = $("#log_submit")
+                if (response == 1){
+                    log.html("The profile has been updated!");
+                    log.css("color", "blue");
+                }else{
+                    log.html("Has been ocurred an error!");
+                    log.css("color", "red");
+                }
+
                 runEffect($("#log_submit"), "bounce");
                 runEffect($("input[name='submit']"), "highlight");
                 runEffect($("#log_submit"), "drop");
