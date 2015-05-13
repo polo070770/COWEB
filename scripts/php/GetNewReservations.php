@@ -32,6 +32,31 @@ while ($row = mysql_fetch_assoc($result)) {
 
 }
 
+$sql = "select ubicacion, anfitrion FROM propiedad;";
+
+$result = mysql_query($sql, $link);
+
+while ($row = mysql_fetch_assoc($result)) {
+
+    $reservation_tag = $xmldoc->createElement("propiedad");
+    $reservations_tag->appendChild($reservation_tag);
+
+    $location_value = $xmldoc->createTextNode($row["ubicacion"]);
+    $guest_value = $xmldoc->createTextNode($row["anfitrion"]);
+
+    $location_tag = $xmldoc->createElement("location");
+    $location_tag->appendChild($location_value);
+
+    $guest_tag = $xmldoc->createElement("guest");
+    $guest_tag->appendChild($guest_value);
+
+    $reservation_tag->appendChild($location_tag);
+    $reservation_tag->appendChild($guest_tag);
+
+}
+
+$result = mysql_query($sql, $link);
+
 mysql_close($link); // Closing Connection
 echo $xmldoc->saveXML();
 

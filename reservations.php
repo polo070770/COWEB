@@ -47,6 +47,11 @@ if (!isset($_SESSION ['login_user'])) {
             $("#reservations").on("click", function () {
                 fillNewReservations();
             });
+
+            $("tbody").on("click", "tr.clickable-row", function() {
+                alert('you clicked a p.test element');
+            });
+
         });
     </script>
 </head>

@@ -291,23 +291,37 @@ nav ul li a:hover {
 .reservations li {
     font-size: 15px;
     line-height: 2;
+
+}
+
+.reservations li:hover {
+    background-color: lightblue;
 }
 
 .reservations-table {
-    border: 1px solid #cbcbcb;
+    border: 2px solid #cbcbcb;
     width: 100%;
-}
-
-.reservations-table th {
-    font-weight: bold;
 }
 
 #reservations_header_1 {
     font-size: 25px;
+    font-weight: bold;
 }
 
-.reservations-table-odd td {
-    background-color: #ffffff;
+#reservations_header_2 {
+    font-size: 20px;
+}
+
+.clickable-row:hover {
+    background-color: lightsteelblue;
+}
+
+.reservations-table-odd.clickable-row {
+    background-color: white;
+}
+
+.reservations-table-odd.clickable-row:hover {
+    background-color: lightsteelblue;
 }
 
 .reservations-table td, th {
@@ -317,5 +331,5 @@ nav ul li a:hover {
 }
 
 .reservations-table tbody > tr:last-child > td {
-    border-bottom-width: 0;
-}
+     border-bottom-width: 0;
+ }

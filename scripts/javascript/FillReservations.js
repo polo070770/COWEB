@@ -1,7 +1,6 @@
 function completeTable(email_id, table_id) {
 
-    $("#reservations_header_1").attr("colspan", 4);
-    $("#reservations_header_1").html("<strong>" + table_id + "</strong>");
+    $("#reservations_header_1").html("<th colspan='4'><strong>" + table_id + "</strong></th>");
 
     var html = "<th>Location</th>" +
         "<th>Guest</th>" +
@@ -20,8 +19,10 @@ function completeTable(email_id, table_id) {
         var html = '';
 
         if (size < 1) {
-            html = "You have no current reservations."
-            $("tbody").html("<p style='text-align: center'>" + html + '</p>')
+            html = "'<tr class='reservations-table-odd' >" +
+            "<td colspan='4' align='center'>You have no current reservations.</td>" +
+            "</tr>";
+            $("tbody").html(html);
         } else {
             var i = 0;
             while (i < size) {
