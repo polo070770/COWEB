@@ -27,11 +27,19 @@ if (!isset($_SESSION ['login_user'])) {
     <meta charset="utf-8"/>
 
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+
     <script type="text/javascript" src="scripts/javascript/FillReservations.js"></script>
     <script type="text/javascript" src="scripts/javascript/FillNewReservations.js"></script>
+    <script type="text/javascript" src="scripts/javascript/Booking.js"></script>
     <script>
+        $(function () {
+            preparateBookingDialog();
+        });
+
         $(document).ready(function () {
 
             completeTable("<?php echo $_SESSION['login_user'] ?>", "PROPERTIES");
@@ -48,8 +56,13 @@ if (!isset($_SESSION ['login_user'])) {
                 fillNewReservations();
             });
 
-            $("tbody").on("click", "tr.clickable-row", function() {
-                alert('you clicked a p.test element');
+            $("tbody").on("click", "tr.clickable-row", function () {
+                var row_elmnts = [];
+                $(this).find("td").each(function () {
+                    row_elmnts.push($(this).text());
+                });
+
+                showDescReserveration(row_elmnts);
             });
 
         });
@@ -57,6 +70,26 @@ if (!isset($_SESSION ['login_user'])) {
 </head>
 
 <body>
+<div id="booking-form" title="booking">
+    <p class="validateTips">All form fields are required.</p>
+
+    <form>
+        <fieldset>
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" value="jane@smith.com"
+                   class="text ui-widget-content ui-corner-all">
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" value="xxxxxxx"
+                   class="text ui-widget-content ui-corner-all">
+
+            <!-- Allow form submission with keyboard without duplicating the dialog button -->
+            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+        </fieldset>
+    </form>
+</div>
+
 <div class="container">
     <nav>
         <ul>
