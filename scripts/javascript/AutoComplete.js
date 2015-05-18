@@ -25,7 +25,7 @@ function showHint(str) {
 
             };
 
-            xmlhttp.open("GET", "http://localhost/scripts/php/GetHint.php?country=" + str + "&city=", true);
+            xmlhttp.open("GET", "scripts/php/GetHint.php?country=" + str + "&city=", true);
             xmlhttp.send();
         }
     } else if (city_hasFocus) {

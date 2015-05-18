@@ -7,7 +7,7 @@ $link = connect();
 
 // username and password sent from form
 $email = isset($_GET ['email']) ? $_GET ['email'] : 'nomail';
-$table_name = isset($_GET['table_id']) ? $_GET['table_id'] : 'no_tableid';
+$table_name = isset($_GET['table_id']) ? $_GET['table_id'] : 'notableid';
 
 // To protect MySQL injection (more detail about MySQL injection)
 $email = stripslashes($email);

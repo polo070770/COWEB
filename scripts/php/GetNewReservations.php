@@ -55,8 +55,6 @@ while ($row = mysql_fetch_assoc($result)) {
 
 }
 
-$result = mysql_query($sql, $link);
-
 mysql_close($link); // Closing Connection
 echo $xmldoc->saveXML();
 

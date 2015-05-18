@@ -34,10 +34,11 @@ if (!isset($_SESSION ['login_user'])) {
 
     <script type="text/javascript" src="scripts/javascript/FillReservations.js"></script>
     <script type="text/javascript" src="scripts/javascript/FillNewReservations.js"></script>
-    <script type="text/javascript" src="scripts/javascript/Booking.js"></script>
+    <script type="text/javascript" src="scripts/javascript/FillDescReservations.js"></script>
     <script>
         $(function () {
-            preparateBookingDialog();
+            datePicker_widget();
+            dialog_widget();
         });
 
         $(document).ready(function () {
@@ -62,7 +63,7 @@ if (!isset($_SESSION ['login_user'])) {
                     row_elmnts.push($(this).text());
                 });
 
-                showDescReserveration(row_elmnts);
+                showDescReserveration(row_elmnts, "<?php echo $_SESSION['login_user'] ?>");
             });
 
         });
@@ -70,24 +71,24 @@ if (!isset($_SESSION ['login_user'])) {
 </head>
 
 <body>
-<div id="booking-form" title="booking">
-    <p class="validateTips">All form fields are required.</p>
+<div id="booking-desc" title="Booking">
+    <div class="row">
+        <div class="col-3>
+            <div id="reservation-details">
 
-    <form>
-        <fieldset>
-            <label for="name">Name</label>
-            <input type="text" name="name" id="name" value="Jane Smith" class="text ui-widget-content ui-corner-all">
-            <label for="email">Email</label>
-            <input type="text" name="email" id="email" value="jane@smith.com"
-                   class="text ui-widget-content ui-corner-all">
-            <label for="password">Password</label>
-            <input type="password" name="password" id="password" value="xxxxxxx"
-                   class="text ui-widget-content ui-corner-all">
+            </div>
+        </div>
 
-            <!-- Allow form submission with keyboard without duplicating the dialog button -->
-            <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
-        </fieldset>
-    </form>
+        <div class="col-9">
+            <div id="date">
+                <label for="from">From</label>
+                <input type="text" id="from" name="from">
+                <br>
+                <label for="to">to</label>
+                <input type="text" id="to" name="to">
+            </div>
+        </div>
+    </div>
 </div>
 
 <div class="container">
