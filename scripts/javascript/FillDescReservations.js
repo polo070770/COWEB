@@ -1,4 +1,5 @@
-var dialog;
+var dialog_reservation;
+var dialog_booked;
 var email;
 //var type_global;
 //var location_global;
@@ -8,7 +9,6 @@ function booking() {
     var valid = false;
     var minDate = $("#from").val();
     var maxDate = $("#to").val();
-
 
     if (window.XMLHttpRequest) {
         // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -20,14 +20,23 @@ function booking() {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
 
+            var response = xmlhttp.responseText;
+
+            if (response == 1) {
+                dialog_booked.dialog("open");
+                dialog_reservation.dialog("close");
+            } else {
+
+            }
+
         }
     }
 
     xmlhttp.open("GET", "scripts/php/CompleteReservation.php?" +
         "email=" + email +
-        "&type=" + $("#type").val() +
-        "&location=" + $("#location").val() +
-        "&guest=" + $("#guest").val() +
+        "&type=" + $("#type").text() +
+        "&location=" + $("#location").text() +
+        "&guest=" + $("#guest").text() +
         "&date_ini=" + minDate +
         "&date_end=" + maxDate,
         true);
@@ -39,7 +48,7 @@ function booking() {
 
 function dialog_widget() {
 
-    dialog = $("#booking-desc").dialog({
+    dialog_reservation = $("#booking-desc").dialog({
         autoOpen: false,
         height: 300,
         width: 400,
@@ -47,7 +56,17 @@ function dialog_widget() {
         buttons: {
             "Book it!": booking,
             Cancel: function () {
-                dialog.dialog("close");
+                dialog_reservation.dialog("close");
+            }
+        }
+    });
+
+    dialog_booked = $("#dialog-message").dialog({
+        autoOpen: false,
+        modal: true,
+        buttons: {
+            Ok: function () {
+                $(this).dialog("close");
             }
         }
     });
@@ -73,7 +92,7 @@ function datePicker_widget() {
     });
 }
 
-function showDescReserveration(elements, user) {
+function showDescReservation(elements, user) {
     var type = elements[0];
     var location = elements[1];
     var guest = elements[2];
@@ -105,9 +124,9 @@ function showDescReserveration(elements, user) {
             bathrooms = description[0].getElementsByTagName("bathrooms")[0].childNodes[0].nodeValue;
             price = description[0].getElementsByTagName("price")[0].childNodes[0].nodeValue;
 
-            var html = "<p id='type'>Type: " + type + "</p>" +
-                "<p id='guest'>Guest: " + guest + "</p>" +
-                "<p id='location'>Location: " + location + "</p>" +
+            var html = "<p>Type: " + "<div id='type'>" + type + "</div>" + "</p>" +
+                "<p>Guest: " + "<div id='guest'>" + guest + "</div>" + "</p>" +
+                "<p>Location: " + "<div id='location'>" + location + "</div>" + "</p>" +
                 "<p>Capacity: " + capacity + "</p>";
 
             if (type == "Room") {
@@ -122,18 +141,17 @@ function showDescReserveration(elements, user) {
             }
 
             html += "<p>Price: " + price + "€</p>";
+            $("#reservation-details").html(html);
 
             $("#from").datepicker("disable");
             $("#to").datepicker("disable");
 
-            dialog.dialog("open");
-
-            $("#reservation-details").html(html);
+            dialog_reservation.dialog("open");
 
             $("#from").datepicker("enable");
-            $("#from").datepicker("option", "dateFormat", "dd-mm-yy");
+            $("#from").datepicker("option", "dateFormat", "yy-mm-dd");
             $("#to").datepicker("enable");
-            $("#to").datepicker("option", "dateFormat", "dd-mm-yy");
+            $("#to").datepicker("option", "dateFormat", "yy-mm-dd");
         }
     }
 

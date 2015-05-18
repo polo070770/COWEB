@@ -63,7 +63,7 @@ if (!isset($_SESSION ['login_user'])) {
                     row_elmnts.push($(this).text());
                 });
 
-                showDescReserveration(row_elmnts, "<?php echo $_SESSION['login_user'] ?>");
+                showDescReservation(row_elmnts, "<?php echo $_SESSION['login_user'] ?>");
             });
 
         });
@@ -73,13 +73,13 @@ if (!isset($_SESSION ['login_user'])) {
 <body>
 <div id="booking-desc" title="Booking">
     <div class="row">
-        <div class="col-3>
+        <div class="col-6">
             <div id="reservation-details">
 
             </div>
         </div>
 
-        <div class="col-9">
+        <div class="col-6">
             <div id="date">
                 <label for="from">From</label>
                 <input type="text" id="from" name="from">
@@ -89,6 +89,10 @@ if (!isset($_SESSION ['login_user'])) {
             </div>
         </div>
     </div>
+</div>
+
+<div id="dialog-message" title="Booking complete">
+    <p>Your reservation was successfully booked.</p>
 </div>
 
 <div class="container">
