@@ -39,6 +39,19 @@ include 'scripts/php/Session.php';
         echo "<li><a href='logout.php'>Log out</a></li>";
         echo "</ul>";
         echo "</nav>";
+
+        echo '<div class="row">';
+        echo '<div class="col-10">';
+        echo '<div class="title">BED AND BREAKFAST</div>';
+        echo '</div>';
+
+        echo '<div class="col-2">';
+        echo '<div class="user-name">Hello ';
+        echo $_SESSION ['login_user'];
+        echo '</div>';
+        echo '</div>';
+        echo '</div>';
+
     } else {
         echo "<nav>";
         echo "<ul>";
@@ -48,14 +61,14 @@ include 'scripts/php/Session.php';
         echo "<li><a href='help.php'>Help</a></li>";
         echo "</ul>";
         echo "</nav>";
+
+        echo '<div class="row">';
+        echo '<div class="col-12">';
+        echo '<div class="title-logout">Getting Started</div>';
+        echo '</div>';
+        echo '</div>';
     }
     ?>
-
-    <div class="row">
-        <div class="col-12">
-            <div class="title">Getting Started</div>
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-4"></div>

@@ -22,11 +22,21 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
     <script type="text/javascript" src="scripts/javascript/CheckLogin.js"></script>
 
     <script>
-        $(document).ready(function () {
+        $(function () {
+            var res = document.cookie.split(";");
+            var username = res[1];
+            var password = res[2];
+            if (typeof username !== "undefined" && typeof password !== "undefined") {
+                login(username, password);
+            }
+        })
 
+        $(document).ready(function () {
             $("#email").focus();
             $("#submit").click(function () {
                 return validateLogin($("#email"), $("#password"));
@@ -49,7 +59,7 @@
 
     <div class="row">
         <div class="col-12">
-            <div class="title">Log in</div>
+            <div class="title-logout">Log in</div>
         </div>
     </div>
 
@@ -64,6 +74,9 @@
                 <div class="button">
                     <input id="submit" type="submit" value="Log in">
                 </div>
+
+                <label for="remember">Remember me?</label>
+                <input type="checkbox" id="remember-me" name="remember" value="remember-me">
             </form>
             <div id="form-result"></div>
         </div>

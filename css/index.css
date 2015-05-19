@@ -107,6 +107,12 @@ body {
 
 .title {
     font-size: 60px;
+    padding-left: 40%;
+    padding-top: 12%;
+}
+
+.title-logout {
+    font-size: 60px;
     text-align: center;
     padding-top: 12%;
 }
@@ -196,6 +202,12 @@ nav ul li a:hover {
         width: 100%;
         max-height: 300px;
     }
+}
+
+.user-name {
+    font-size: 20px;
+    padding-top: 30%;
+    text-align: center;
 }
 
 /*------ FORMS ------*/
@@ -330,8 +342,8 @@ nav ul li a:hover {
 }
 
 .reservations-table tbody > tr:last-child > td {
-     border-bottom-width: 0;
- }
+    border-bottom-width: 0;
+}
 
 #booking-desc {
     font-size: 12px;
